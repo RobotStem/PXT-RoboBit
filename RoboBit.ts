@@ -11,7 +11,7 @@ namespace MyRoboStem {
         MotorB,
         //%blockId=RoboBit_motor_AB
         //% block="motor AB"
-        MotorAB,
+        MotorAB
     }
 
     export enum MotorDirection {
@@ -27,6 +27,14 @@ namespace MyRoboStem {
         //% block="Coast"
         Coast
     }
+
+    export enum turn {
+        //% block="Left"
+        Left,
+        //% block="Right"
+        Right
+    }
+
      /**	
      * Turns on motor, forward, reverse at the requested speed 
      *
@@ -140,7 +148,7 @@ namespace MyRoboStem {
       * @param speed percent of maximum speed, eg: 50
       */
     //% subcategory=RoboBit
-    //% blockId="RoboBit_FL_turn" block="Follow line turn %motor|speed %speed"
+    //% blockId="RoboBit_FL_turn" block="Follow line turn %turn|speed %speed"
     //% speed.min=0 speed.max=100
     //% weight=90
     export function FLTurn(Follow line turn: turn, speed: number): void {       
