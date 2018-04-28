@@ -96,9 +96,9 @@ namespace MyRoboStem {
      * Turns off the motor
      * @param motor :which motor to turn off
      */
-    //%subcategory=RoboBit
+    //% subcategory=RoboBit
     //% blockId=RoboBit_motor_off
-    //%block="%motor|Stop %StopMode|mode"
+    //% block="%motor|Stop %StopMode|mode"
     export function motorOff(Motor: Motors, Stop: StopMode): void {
         switch (motor) {
             case Motors.MotorAB:
@@ -148,7 +148,8 @@ namespace MyRoboStem {
       * @param speed percent of maximum speed, eg: 50
       */
     //% subcategory=RoboBit
-    //% blockId="RoboBit_FL_turn" block="Follow line turn %turn|speed %speed"
+    //% blockId="RoboBit_FLTurn"
+    //% block="%turn|Speed %Speed"
     //% speed.min=0 speed.max=100
     //% weight=90
     export function FLTurn(Follow line turn: turn, speed: number): void {       
