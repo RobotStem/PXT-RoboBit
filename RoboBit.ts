@@ -145,12 +145,12 @@ namespace MyRoboStem {
     }
 
      /**Follow line (FL) turn Block, TurnLeft or TurnRight and speed motor.
-      * @param turn  Which robot to turn Left or Right
-      * @param speed percent of maximum speed, eg: 50
+      * @param turn	Which robot to turn Left or Right
+      * @param speed	percent of maximum speed, eg: 50
       */
     //% subcategory=RoboBit
     //% blockId="RoboBit_FLTurn"
-    //% block="%turn|Speed %Speed"
+    //% block="%turn|Speed %speed"
     //% speed.min=0 speed.max=100
     //% weight=90
     export function FLTurn(Follow line turn: turn, speed: number): void {       
