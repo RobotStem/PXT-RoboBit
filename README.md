@@ -1,11 +1,3 @@
-# iBIT block package for iBIT robot kit
-
-powered by micro:bit
-
-![ibitbot](https://raw.githubusercontent.com/emwta/pxt-iBit/master/icon.png)  
-
-The package adds support for the iBIT conroller board from Innovative Experiment [INEX](https://inex.co.th).
-
 ### micro:bit Pin Assignment
 
 The following micro:bit pins are used for analog and digital sensors, DC motor drivers and servo motors:
