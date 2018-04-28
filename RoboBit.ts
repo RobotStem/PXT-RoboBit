@@ -145,6 +145,7 @@ namespace MyRoboStem {
     }
 
      /**Follow line (FL) turn Block, TurnLeft or TurnRight and speed motor.
+      * @param turn  Which robot to turn Left or Right
       * @param speed percent of maximum speed, eg: 50
       */
     //% subcategory=RoboBit
