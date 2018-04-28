@@ -145,7 +145,6 @@ namespace MyRoboStem {
     }
 
      /**Follow line (FL) turn Block, TurnLeft or TurnRight and speed motor.
-      * @param turn	Which robot to turn Left or Right
       * @param speed	percent of maximum speed, eg: 50
       */
     //% subcategory=RoboBit
@@ -155,13 +154,13 @@ namespace MyRoboStem {
     //% weight=90
     export function FLTurn(Follow line turn: turn, speed: number): void {       
       let motorspeed = pins.map(speed,0,100,0,1023)      
-        if (Turn == turn.Left) {           
+        if (FLTurn == turn.Left) {           
             pins.digitalWritePin(DigitalPin.P13, 0)
             pins.digitalWritePin(DigitalPin.P14, 0)
             pins.analogWritePin(AnalogPin.P15, motorspeed)
 	    pins.digitalWritePin(DigitalPin.P16, 0)
         }
-        if (Turn == turn.Right) {
+        if (FLTurn == turn.Right) {
             pins.analogWritePin(AnalogPin.P13, motorspeed)
 	    pins.digitalWritePin(DigitalPin.P14, 0)
 	    pins.digitalWritePin(DigitalPin.P15, 0)
