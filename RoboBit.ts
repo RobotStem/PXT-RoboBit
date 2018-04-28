@@ -139,6 +139,7 @@ namespace MyRoboStem {
      /**Follow line (FL) turn Block, TurnLeft or TurnRight and speed motor.
       * @param speed percent of maximum speed, eg: 50
       */
+    //% subcategory=RoboBit
     //% blockId="RoboBit_FL_turn" block="Follow line turn %motor|speed %speed"
     //% speed.min=0 speed.max=100
     //% weight=90
