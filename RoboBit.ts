@@ -27,8 +27,8 @@ namespace MyRoboStem {
         //% block="Coast"
         Coast
     }
-	/**
-     * Turns on motor, at the requested speed 
+     /**	
+     * Turns on motor, forward, reverse at the requested speed 
      *
 	 * @param motor which motor to turn on
 	 * @param dir   which direction to go
@@ -38,8 +38,8 @@ namespace MyRoboStem {
     //% blockId=RoboBit_motor_on
     //% block="%motor|on, Direction %dir|speed %speed"
     //% speed.min=0 speed.max=100
-    //% weight=50
-    export function motorOn(motor: Motors, dir: MotorDirection, speed: number): void {
+    //% weight=90
+    export function motorOn(Motor: Motors, dir: MotorDirection, speed: number): void {
         let motorspeed = pins.map(speed,0,100,0,1023)     
         switch (motor) {
             case Motors.MotorA: /*Motor A uses Pins 13 and 14*/
@@ -91,7 +91,7 @@ namespace MyRoboStem {
     //%subcategory=RoboBit
     //% blockId=RoboBit_motor_off
     //%block="%motor|Stop %StopMode|mode"
-    export function motorOff(motor: Motors, Stop: StopMode): void {
+    export function motorOff(Motor: Motors, Stop: StopMode): void {
         switch (motor) {
             case Motors.MotorAB:
                 switch (Stop) {
@@ -135,5 +135,29 @@ namespace MyRoboStem {
                 break;
 	}
     }
+
+     /**Follow line (FL) turn Block, TurnLeft or TurnRight and speed motor.
+      * @param speed percent of maximum speed, eg: 50
+      */
+    //% blockId="RoboBit_FL_turn" block="Follow line turn %motor|speed %speed"
+    //% speed.min=0 speed.max=100
+    //% weight=90
+    export function FLTurn(Follow line turn: turn, speed: number): void {       
+      let motorspeed = pins.map(speed,0,100,0,1023)      
+        if (Turn == turn.Left) {           
+            pins.digitalWritePin(DigitalPin.P13, 0)
+            pins.digitalWritePin(DigitalPin.P14, 0)
+            pins.analogWritePin(AnalogPin.P15, motorspeed)
+	    pins.digitalWritePin(DigitalPin.P16, 0)
+        }
+        if (Turn == turn.Right) {
+            pins.analogWritePin(AnalogPin.P13, motorspeed)
+	    pins.digitalWritePin(DigitalPin.P14, 0)
+	    pins.digitalWritePin(DigitalPin.P15, 0)
+            pins.digitalWritePin(DigitalPin.P16, 0)
+        }
+    }
+
+
 }
 
