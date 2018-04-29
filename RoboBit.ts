@@ -150,10 +150,10 @@ namespace MyRoboStem {
       */
     //% subcategory=RoboBit
     //% blockId="RoboBit_followlineTURN"
-    //% block="Follow line %turn|Speed %speed"
+    //% block="Follow line %Turn|Speed %speed"
     //% speed.min=0 speed.max=100
     //% weight=90
-    export function followlineTURN(turn: FLturn, speed: number): void {       
+    export function followlineTURN(Turn: FLturn, speed: number): void {       
       let motorspeed = pins.map(speed,0,100,0,1023)      
 	switch (turn) {
             case Flturn.Left:
