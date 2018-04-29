@@ -150,7 +150,7 @@ namespace MyRoboStem {
       */
     //% subcategory=RoboBit
     //% blockId="RoboBit_followlineTURN"
-    //% block="Follow line %turn|Speed %speed"
+    //% block="FollowlineTurn %turn|Speed %speed"
     //% speed.min=0 speed.max=100
     //% weight=90
     export function followlineTURN(turn: FLturn, speed: number): void {       
