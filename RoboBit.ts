@@ -172,6 +172,22 @@ namespace MyRoboStem {
 	break;
     }
 
+	/**
+	 * Execute single motors with delay
+	 * @param index Motor Index; eg: M1A, M1B, M2A, M2B
+	 * @param speed speed of motor; eg: 50
+	 * @param delay seconde delay to stop; eg: 1
+	*/
+    //% blockId=robotbit_motor_rundelay block="Motor|%index|speed %speed|delay %delay|s"
+    //% weight=81
+    //% speed.min=-255 speed.max=255
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function MotorRunDelay(index: Motors, speed: number, delay: number): void {
+        MotorRun(index, speed);
+        basic.pause(delay * 1000);
+        MotorRun(index, 0);
+    }
+
 
 }
 
