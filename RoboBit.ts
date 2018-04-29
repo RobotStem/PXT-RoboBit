@@ -22,16 +22,16 @@ namespace MyRoboStem {
     }
 
     export enum StopMode {
-        //% block="Brake"
+        //% block="brake"
         Brake,
-        //% block="Coast"
+        //% block="coast"
         Coast
     }
 
-    export enum turn {
-        //% block="Left"
+    export enum Flturn {
+        //% block="left"
         Left,
-        //% block="Right"
+        //% block="right"
         Right
     }
 
@@ -144,28 +144,32 @@ namespace MyRoboStem {
 	}
     }
 
-     /**Follow line (FL) turn Block, TurnLeft or TurnRight and speed motor.
+     /**Follow line turn Block, TurnLeft or TurnRight and speed motor.
+      * @param turn	for turn Left or Right
       * @param speed	percent of maximum speed, eg: 50
       */
     //% subcategory=RoboBit
-    //% blockId="RoboBit_FLTurn"
-    //% block="%turn|Speed %speed"
+    //% blockId="RoboBit_followlineTURN"
+    //% block="Follow line %turn|Speed %speed"
     //% speed.min=0 speed.max=100
     //% weight=90
-    export function FLTurn(Follow line turn: turn, speed: number): void {       
+    export function followlineTURN(turn: FLturn, speed: number): void {       
       let motorspeed = pins.map(speed,0,100,0,1023)      
-        if (FLTurn == turn.Left) {           
-            pins.digitalWritePin(DigitalPin.P13, 0)
-            pins.digitalWritePin(DigitalPin.P14, 0)
-            pins.analogWritePin(AnalogPin.P15, motorspeed)
-	    pins.digitalWritePin(DigitalPin.P16, 0)
+	switch (turn) {
+            case Flturn.Left:
+		pins.digitalWritePin(DigitalPin.P13, 0)
+		pins.digitalWritePin(DigitalPin.P14, 0)
+		pins.analogWritePin(AnalogPin.P15, motorspeed)
+		pins.digitalWritePin(DigitalPin.P16, 0)
+		break
+            case Flturn.Right:
+		pins.analogWritePin(AnalogPin.P13, motorspeed)
+		pins.digitalWritePin(DigitalPin.P14, 0)
+		pins.digitalWritePin(DigitalPin.P15, 0)
+		pins.digitalWritePin(DigitalPin.P16, 0)
+		break
         }
-        if (FLTurn == turn.Right) {
-            pins.analogWritePin(AnalogPin.P13, motorspeed)
-	    pins.digitalWritePin(DigitalPin.P14, 0)
-	    pins.digitalWritePin(DigitalPin.P15, 0)
-            pins.digitalWritePin(DigitalPin.P16, 0)
-        }
+	break;
     }
 
 
