@@ -28,13 +28,6 @@ namespace MyRoboStem {
         Coast
     }
 
-    export enum Flturn {
-        //% block="left"
-        Left,
-        //% block="right"
-        Right
-    }
-
     export enum Rotated {
         //% block="left"
         Left,
@@ -51,9 +44,8 @@ namespace MyRoboStem {
      */
     //% subcategory=RoboBit
     //% blockId=RoboBit_motor_on
-    //% block="%motor|on, Direction %dir|speed %speed"
+    //% block="%motor|direction %dir|speed %speed"
     //% speed.min=0 speed.max=100
-    //% weight=90
     export function motorOn(Motor: Motors, dir: MotorDirection, speed: number): void {
         let motorspeed = pins.map(speed,0,100,0,1023)     
         switch (motor) {
@@ -151,34 +143,6 @@ namespace MyRoboStem {
 	}
     }
 
-     /**Follow line turn Block, TurnLeft or TurnRight and speed motor.
-      * @param turn	for turn Left or Right
-      * @param speed	percent of maximum speed, eg: 50
-      */
-    //% subcategory=RoboBit
-    //% blockId="RoboBit_followlineTURN"
-    //% block="FollowlineTurn %turn|Speed %speed"
-    //% speed.min=0 speed.max=100
-    //% weight=90
-    export function followlineTURN(turn: FLturn, speed: number): void {       
-      let motorspeed = pins.map(speed,0,100,0,1023)      
-	switch (turn) {
-            case Flturn.Left:
-		pins.digitalWritePin(DigitalPin.P13, 0)
-		pins.digitalWritePin(DigitalPin.P14, 0)
-		pins.analogWritePin(AnalogPin.P15, motorspeed)
-		pins.digitalWritePin(DigitalPin.P16, 0)
-		break
-            case Flturn.Right:
-		pins.analogWritePin(AnalogPin.P13, motorspeed)
-		pins.digitalWritePin(DigitalPin.P14, 0)
-		pins.digitalWritePin(DigitalPin.P15, 0)
-		pins.digitalWritePin(DigitalPin.P16, 0)
-		break
-        }
-	break;
-    }
-
 	/**
 	 * Execute single motors with delay
 	 * @param index Motor Index; eg: M1A, M1B, M2A, M2B
@@ -194,23 +158,19 @@ namespace MyRoboStem {
       let motorspeed = pins.map(speed,0,100,0,1023)      
 	switch (index) {
             case Rotated.Left:
-		pins.analogWritePin(AnalogPin.P14, motorspeed)
-		pins.digitalWritePin(DigitalPin.P10, 0)
-		pins.analogWritePin(AnalogPin.P15, motorspeed)
-		pins.digitalWritePin(DigitalPin.P16, 0)
+		motorOn(Motors.MotorA, MotorDirection.Reverse, speed)
+		motorOn(Motors.MotorB, MotorDirection.Forward, speed)
+		basic.pause(delay*1000)
+		motorOff(Motors.MotorAB, StopMode.Brake)
 		break
             case Rotated.Right:
-		pins.analogWritePin(AnalogPin.P13, motorspeed)
-		pins.digitalWritePin(DigitalPin.P14, 0)
-		pins.analogWritePin(AnalogPin.P16, motorspeed)
-		pins.digitalWritePin(DigitalPin.P15, 0)
+		motorOn(Motors.MotorA, MotorDirection.Forward, speed)
+		motorOn(Motors.MotorB, MotorDirection.Reverse, speed)
+		basic.pause(delay*1000)
+		motorOff(Motors.MotorAB, StopMode.Brake)
 		break
         }
 	break;
-
-
     }
-
-
 }
 
