@@ -192,32 +192,18 @@ namespace MyRoboStem {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function RotateDelay(index: Rotated, speed: number, delay: number): void {
       let motorspeed = pins.map(speed,0,100,0,1023)      
-      let delay = basic.pause(delay * 1000)      
 	switch (index) {
             case Rotated.Left:
 		pins.analogWritePin(AnalogPin.P14, motorspeed)
 		pins.digitalWritePin(DigitalPin.P10, 0)
 		pins.analogWritePin(AnalogPin.P15, motorspeed)
 		pins.digitalWritePin(DigitalPin.P16, 0)
-		delay = Math.abs(delay);
-		basic.pause(delay);
-			pins.digitalWritePin(DigitalPin.P13, 1);
-		        pins.digitalWritePin(DigitalPin.P14, 1);
-			pins.digitalWritePin(DigitalPin.P15, 1);
-		        pins.digitalWritePin(DigitalPin.P16, 1);
-
 		break
             case Rotated.Right:
 		pins.analogWritePin(AnalogPin.P13, motorspeed)
 		pins.digitalWritePin(DigitalPin.P14, 0)
 		pins.analogWritePin(AnalogPin.P16, motorspeed)
 		pins.digitalWritePin(DigitalPin.P15, 0)
-		delay = Math.abs(delay);
-		basic.pause(delay);
-			pins.digitalWritePin(DigitalPin.P13, 1);
-		        pins.digitalWritePin(DigitalPin.P14, 1);
-			pins.digitalWritePin(DigitalPin.P15, 1);
-		        pins.digitalWritePin(DigitalPin.P16, 1);
 		break
         }
 	break;
