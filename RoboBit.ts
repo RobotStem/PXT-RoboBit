@@ -162,16 +162,24 @@ namespace MyRoboStem {
       let motorspeed = pins.map(speed,0,100,0,1023)      
 	switch (index) {
             case Rotated.Left:
+	basic.showString("Left")
+	    /**
 		motorOn(Motors.MotorA, MotorDirection.Reverse, speed);
 		motorOn(Motors.MotorB, MotorDirection.Forward, speed);
 		basic.pause(delay*1000);
 		motorOFF(Motors.MotorAB, StopMode.Brake);
+	*/
 		break
+
             case Rotated.Right:
+	    
+	basic.showString("Right")
+    	/**
 		motorOn(Motors.MotorA, MotorDirection.Forward, speed);
 		motorOn(Motors.MotorB, MotorDirection.Reverse, speed);
 		basic.pause(delay*1000);
 		motorOFF(Motors.MotorAB, StopMode.Brake);
+	*/
 		break
         }
 	/**
