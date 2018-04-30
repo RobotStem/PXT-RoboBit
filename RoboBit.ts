@@ -1,4 +1,4 @@
-//% color="#31C7D5" weight=10 icon="\uf110"
+//% color="#31C7D5" weight=10 icon="\uf188"
 namespace MyRoboStem {
 	/************************************************************************************************************************************************
 	* Robot<>Stem<>Project<>micro:bit 
@@ -50,6 +50,7 @@ namespace MyRoboStem {
 	 * @param dir   which direction to go
 	 * @param speed which slow/fast to spin the motor, eg:50
      */
+    //% color="#31C7D5" weight=10 icon="\uf11e"
     //% subcategory=RoboBit
     //% blockId=RoboBit_motor_on
     //% block="%motor|direction %dir|speed %speed"
@@ -103,6 +104,7 @@ namespace MyRoboStem {
      * Turns off the motor
      * @param motor :which motor to turn off
      */
+    //% color="#31C7D5" weight=10 icon="\uf11e"
     //% subcategory=RoboBit
     //% blockId=RoboBit_motor_off
     //% block="%motor|Stop %StopMode|mode"
@@ -151,56 +153,6 @@ namespace MyRoboStem {
 	}
     }
 
-	/**
-	 * Execute dual motor to rotate with delay time to stop.
-	 * @param index rotate robot Index; eg: Left, Right
-	 * @param speed speed of motor; eg: 50
-	 * @param delay seconde delay to stop; eg: 1
-	*/
-    //% subcategory=RoboBit
-    //% blockId=RoboBit_rotate block="rotate|%index|speed %speed|delay %delay|s"
-    //% weight=81
-    //% speed.min=0 speed.max=100
-    export function RotateDelay(index: Rotated, speed: number, delay: number): void {
-      let motorspeed = pins.map(speed,0,100,0,1023)      
-	switch (index) {
-            case Rotated.Left:
-		motorOn(Motors.MotorA, MotorDirection.Reverse, speed)
-		motorOn(Motors.MotorB, MotorDirection.Forward, speed)
-		basic.pause(delay*1000)
-		motorOff(Motors.MotorAB, StopMode.Brake)
-		break
-            case Rotated.Right:
-		motorOn(Motors.MotorA, MotorDirection.Forward, speed)
-		motorOn(Motors.MotorB, MotorDirection.Reverse, speed)
-		basic.pause(delay*1000)
-		motorOff(Motors.MotorAB, StopMode.Brake)
-		break
-        }
-	break;
-    }
 
-	/**
-	 * Execute turn direction with dual motors for follow line robot.
-	 * @param index Motor Index; eg: M1A, M1B, M2A, M2B
-	 * @param speed speed of motor; eg: 50
-	*/
-    //% subcategory=RoboBit
-    //% blockId=RoboBit_followlineTurn block="turn|%index|speed %speed"
-    //% speed.min=0 speed.max=100
-    export function followlineTurn(index: Turn, speed: number): void {
-      let motorspeed = pins.map(speed,0,100,0,1023)      
-	switch (index) {
-            case Turn.Left:
-		motorOff(Motors.MotorA, StopMode.Coast)
-		motorOn(Motors.MotorB, MotorDirection.Forward, speed)
-		break
-            case Turn.Right:
-		motorOff(Motors.MotorB, StopMode.Coast)
-		motorOn(Motors.MotorA, MotorDirection.Forward, speed)
-		break
-        }
-	break;
-    }
 
 }
