@@ -50,6 +50,13 @@ namespace MyRoboStem {
         Right
     }
 
+    export enum Timeunit {
+        //% block="mS"
+        mS,
+        //% block="Sec"
+        Sec
+    }
+
      /**	
      * Turns on motor, forward, reverse at the requested speed 
      *
@@ -217,15 +224,15 @@ namespace MyRoboStem {
 
 	/**
 	 * Execute turn direction with dual motors for follow line robot.
-	 * @param index Turn Index Left or Right
+	 * @param indexfl Turn Index Left or Right
 	 * @param speed speed of motor; eg: 40
 	*/
     //% subcategory=RoboBit
     //% blockId=RoboBit_followlineTurn block="turn|%index|speed %speed"
     //% speed.min=0 speed.max=100
-    export function followlineTurn(index: Turn, speed: number): void {
+    export function followlineTurn(indexfl: Turn, speed: number): void {
       let motorspeed = pins.map(speed,0,100,0,1023)      
-	switch (index) {
+	switch (indexfl) {
             case Turn.Left:
 		MyRoboStem.motorOn(MyRoboStem.Motors.MotorA, MyRoboStem.MotorDirection.Forward, 0)
 		MyRoboStem.motorOn(MyRoboStem.Motors.MotorB, MyRoboStem.MotorDirection.Forward, speed)
@@ -235,7 +242,25 @@ namespace MyRoboStem {
 		MyRoboStem.motorOn(MyRoboStem.Motors.MotorB, MyRoboStem.MotorDirection.Forward, 0)
 		break
         }
-	break;
+    }
+
+	/**
+	 * Execute delay time
+	 * @param indexunit	    Time unit Index mS or Sec
+	 * @param delaytime Time number Index to delay; eg: 100
+	*/
+    //% subcategory=RoboBit
+    //% blockId=RoboBit_TimeDELAY block="delay|%delaytime|%index"
+    //% speed.min=0 speed.max=100
+    export function TimeDELAY(indexunit: Timeunit, delaytime: number): void {
+	switch (indexunit) {
+            case Timeunit.mS:
+		basic.pause(delaytime)
+		break
+            case Timeunit.Sec:
+		basic.pause(delaytime*1000)
+		break
+        }
     }
 
 }
