@@ -50,13 +50,6 @@ namespace MyRoboStem {
         Right
     }
 
-    export enum Timeunit {
-        //% block="mS"
-        mS,
-        //% block="Sec"
-        Sec
-    }
-
      /**	
      * Turns on motor, forward, reverse at the requested speed 
      *
@@ -245,22 +238,25 @@ namespace MyRoboStem {
     }
 
 	/**
-	 * Execute delay time
-	 * @param indexunit	    Time unit Index mS or Sec
-	 * @param delaytime Time number Index to delay; eg: 100
+	 * Execute puase time
+	 * @param pausetime  mSec number  to elay; eg: 100
 	*/
     //% subcategory=RoboBit
-    //% blockId=RoboBit_TimeDELAY block="delay|%delaytime|%indexunit"
-    //% speed.min=0 speed.max=100
-    export function TimeDELAY(indexunit: Timeunit, delaytime: number): void {
-	switch (indexunit) {
-            case Timeunit.mS:
-		basic.pause(delaytime)
+    //% blockId=RoboBit_TimePAUSE block="pause|%pausetime|mSec"
+    export function TimePAUSE(pausetime: number): void {
+		basic.pause(pausetime)
 		break
-            case Timeunit.Sec:
+        }
+
+	/**
+	 * Execute delay time
+	 * @param delaytime   Seconde number to delay; eg: 1
+	*/
+    //% subcategory=RoboBit
+    //% blockId=RoboBit_TimeDELAY block="delay|%delaytime|Sec"
+    export function TimeDELAY(delaytime: number): void {
 		basic.pause(delaytime*1000)
 		break
         }
-    }
 
 }
