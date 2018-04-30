@@ -36,6 +36,13 @@ namespace MyRoboStem {
         Right
     }
 
+    export enum Turn {
+        //% block="left"
+        Left,
+        //% block="right"
+        Right
+    }
+
      /**	
      * Turns on motor, forward, reverse at the requested speed 
      *
@@ -145,8 +152,8 @@ namespace MyRoboStem {
     }
 
 	/**
-	 * Execute single motors with delay
-	 * @param index Motor Index; eg: M1A, M1B, M2A, M2B
+	 * Execute dual motor to rotate with delay time to stop.
+	 * @param index rotate robot Index; eg: Left, Right
 	 * @param speed speed of motor; eg: 50
 	 * @param delay seconde delay to stop; eg: 1
 	*/
@@ -154,7 +161,6 @@ namespace MyRoboStem {
     //% blockId=RoboBit_rotate block="rotate|%index|speed %speed|delay %delay|s"
     //% weight=81
     //% speed.min=0 speed.max=100
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function RotateDelay(index: Rotated, speed: number, delay: number): void {
       let motorspeed = pins.map(speed,0,100,0,1023)      
 	switch (index) {
@@ -173,5 +179,28 @@ namespace MyRoboStem {
         }
 	break;
     }
-}
 
+	/**
+	 * Execute turn direction with dual motors for follow line robot.
+	 * @param index Motor Index; eg: M1A, M1B, M2A, M2B
+	 * @param speed speed of motor; eg: 50
+	*/
+    //% subcategory=RoboBit
+    //% blockId=RoboBit_followlineTurn block="turn|%index|speed %speed"
+    //% speed.min=0 speed.max=100
+    export function followlineTurn(index: Turn, speed: number): void {
+      let motorspeed = pins.map(speed,0,100,0,1023)      
+	switch (index) {
+            case Turn.Left:
+		motorOff(Motors.MotorA, StopMode.Coast)
+		motorOn(Motors.MotorB, MotorDirection.Forward, speed)
+		break
+            case Turn.Right:
+		motorOff(Motors.MotorB, StopMode.Coast)
+		motorOn(Motors.MotorA, MotorDirection.Forward, speed)
+		break
+        }
+	break;
+    }
+
+}
