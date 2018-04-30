@@ -246,7 +246,7 @@ namespace MyRoboStem {
     //% blockId=RoboBit_TimePAUSE block="pause|%pausetime|mSec"
     export function TimePAUSE(pausetime: number): void {
 		basic.pause(pausetime)
-		break
+	
         }
 
 	/**
@@ -258,7 +258,7 @@ namespace MyRoboStem {
     //% blockId=RoboBit_TimeDELAY block="delay|%delaytime|Sec"
     export function TimeDELAY(delaytime: number): void {
 		basic.pause(delaytime*1000)
-		break
+
         }
 
 }
