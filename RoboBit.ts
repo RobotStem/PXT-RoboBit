@@ -1,4 +1,4 @@
-//% color="#31C7D5" weight=10 icon="\uf188"
+//% color="#31C7D5" weight=10 icon="\uf11e"
 namespace MyRoboStem {
 	/************************************************************************************************************************************************
 	* Robot<>Stem<>Project<>micro:bit 
@@ -29,20 +29,6 @@ namespace MyRoboStem {
         Coast
     }
 
-    export enum Rotated {
-        //% block="left"
-        Left,
-        //% block="right"
-        Right
-    }
-
-    export enum Turn {
-        //% block="left"
-        Left,
-        //% block="right"
-        Right
-    }
-
      /**	
      * Turns on motor, forward, reverse at the requested speed 
      *
@@ -50,7 +36,6 @@ namespace MyRoboStem {
 	 * @param dir   which direction to go
 	 * @param speed which slow/fast to spin the motor, eg:50
      */
-    //% color="#31C7D5" weight=10 icon="\uf11e"
     //% subcategory=RoboBit
     //% blockId=RoboBit_motor_on
     //% block="%motor|direction %dir|speed %speed"
@@ -100,18 +85,18 @@ namespace MyRoboStem {
                 break;
         }
     }
+
     /**
      * Turns off the motor
-     * @param motor :which motor to turn off
+     * @param motor which motor to turn off
      */
-    //% color="#31C7D5" weight=10 icon="\uf11e"
     //% subcategory=RoboBit
     //% blockId=RoboBit_motor_off
     //% block="%motor|Stop %StopMode|mode"
-    export function motorOff(Motor: Motors, Stop: StopMode): void {
+    export function motorOFF(motor: Motors, stop: StopMode): void {
         switch (motor) {
             case Motors.MotorAB:
-                switch (Stop) {
+                switch (stop) {
                     case StopMode.Brake:
 			pins.digitalWritePin(DigitalPin.P13, 1);
 		        pins.digitalWritePin(DigitalPin.P14, 1);
@@ -127,7 +112,7 @@ namespace MyRoboStem {
                 }
                 break;
             case Motors.MotorA:
-                switch (Stop) {
+                switch (stop) {
                     case StopMode.Brake:
 			pins.digitalWritePin(DigitalPin.P13, 1);
 		        pins.digitalWritePin(DigitalPin.P14, 1);
@@ -139,7 +124,7 @@ namespace MyRoboStem {
                 }
                 break;
             case Motors.MotorB:
-                switch (Stop) {
+                switch (stop) {
                     case StopMode.Brake:
 			pins.digitalWritePin(DigitalPin.P15, 1);
 		        pins.digitalWritePin(DigitalPin.P16, 1);
