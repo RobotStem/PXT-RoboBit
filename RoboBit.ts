@@ -4,13 +4,13 @@ namespace MyRoboStem {
 	* Robot<>Stem<>Project<>micro:bit 
 	************************************************************************************************************************************************/
     export enum Motors {
-        //%blockId=RoboBit_motor_A
+        //% blockId=RoboBit_motor_A
         //% block="motor A"
         MotorA,
-         //%blockId=RoboBit_motor_B
+        //% blockId=RoboBit_motor_B
         //% block="motor B"
         MotorB,
-        //%blockId=RoboBit_motor_AB
+        //% blockId=RoboBit_motor_AB
         //% block="motor AB"
         MotorAB
     }
@@ -40,7 +40,7 @@ namespace MyRoboStem {
     //% blockId=RoboBit_motor_on
     //% block="%motor|direction %dir|speed %speed"
     //% speed.min=0 speed.max=100
-    export function motorOn(Motor: Motors, dir: MotorDirection, speed: number): void {
+    export function motorOn(motor: Motors, dir: MotorDirection, speed: number): void {
         let motorspeed = pins.map(speed,0,100,0,1023)     
         switch (motor) {
             case Motors.MotorA: /*Motor A uses Pins 13 and 14*/
@@ -134,7 +134,10 @@ namespace MyRoboStem {
 		        pins.digitalWritePin(DigitalPin.P16, 0);
                         break
                 }
+	/**
                 break;
+	*/
+
 	}
     }
 
