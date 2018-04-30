@@ -162,17 +162,17 @@ namespace MyRoboStem {
       let motorspeed = pins.map(speed,0,100,0,1023)      
 	switch (index) {
             case Rotated.Left:
-    MyRoboStem.motorOn(MyRoboStem.Motors.MotorA, MyRoboStem.MotorDirection.Forward, 0)
-    MyRoboStem.motorOn(MyRoboStem.Motors.MotorB, MyRoboStem.MotorDirection.Forward, speed)
-    basic.pause(delay*1000)
-    MyRoboStem.motorOFF(MyRoboStem.Motors.MotorAB, MyRoboStem.StopMode.Coast)
+		MyRoboStem.motorOn(MyRoboStem.Motors.MotorA, MyRoboStem.MotorDirection.Reverse, speed)
+		MyRoboStem.motorOn(MyRoboStem.Motors.MotorB, MyRoboStem.MotorDirection.Forward, speed)
+		basic.pause(delay*1000)
+		MyRoboStem.motorOFF(MyRoboStem.Motors.MotorAB, MyRoboStem.StopMode.Coast)
 		break
 
             case Rotated.Right:
-    MyRoboStem.motorOn(MyRoboStem.Motors.MotorA, MyRoboStem.MotorDirection.Forward, speed)
-    MyRoboStem.motorOn(MyRoboStem.Motors.MotorB, MyRoboStem.MotorDirection.Forward, 0)
-    basic.pause(delay*1000)
-    MyRoboStem.motorOFF(MyRoboStem.Motors.MotorAB, MyRoboStem.StopMode.Coast)
+		MyRoboStem.motorOn(MyRoboStem.Motors.MotorA, MyRoboStem.MotorDirection.Forward, speed)
+		MyRoboStem.motorOn(MyRoboStem.Motors.MotorB, MyRoboStem.MotorDirection.Reverse, speed)
+		basic.pause(delay*1000)
+		MyRoboStem.motorOFF(MyRoboStem.Motors.MotorAB, MyRoboStem.StopMode.Coast)
 		break
         }
 	/**
