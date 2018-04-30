@@ -157,7 +157,7 @@ namespace MyRoboStem {
     //% subcategory=RoboBit
     //% blockId=RoboBit_rotateDelay block="rotate|%index|speed %speed|delay %delay|sec"
     //% speed.min=0 speed.max=100
-    //% delay.min=0 speed.max=10
+    //% delay.min=0 delay.max=10
     export function RotateDelay(index: Rotated, speed: number, delay: number): void {
       let motorspeed = pins.map(speed,0,100,0,1023)      
 	switch (index) {
