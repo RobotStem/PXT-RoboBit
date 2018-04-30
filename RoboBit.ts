@@ -43,6 +43,13 @@ namespace MyRoboStem {
         Right
     }
 
+    export enum Turn {
+        //% block="left"
+        Left,
+        //% block="right"
+        Right
+    }
+
      /**	
      * Turns on motor, forward, reverse at the requested speed 
      *
@@ -208,5 +215,27 @@ namespace MyRoboStem {
         }
     }
 
+	/**
+	 * Execute turn direction with dual motors for follow line robot.
+	 * @param index Turn Index Left or Right
+	 * @param speed speed of motor; eg: 40
+	*/
+    //% subcategory=RoboBit
+    //% blockId=RoboBit_followlineTurn block="turn|%index|speed %speed"
+    //% speed.min=0 speed.max=100
+    export function followlineTurn(index: Turn, speed: number): void {
+      let motorspeed = pins.map(speed,0,100,0,1023)      
+	switch (index) {
+            case Turn.Left:
+		MyRoboStem.motorOn(MyRoboStem.Motors.MotorA, MyRoboStem.MotorDirection.Forward, 0)
+		MyRoboStem.motorOn(MyRoboStem.Motors.MotorB, MyRoboStem.MotorDirection.Forward, speed)
+		break
+            case Turn.Right:
+		MyRoboStem.motorOn(MyRoboStem.Motors.MotorA, MyRoboStem.MotorDirection.Forward, speed)
+		MyRoboStem.motorOn(MyRoboStem.Motors.MotorB, MyRoboStem.MotorDirection.Forward, 0)
+		break
+        }
+	break;
+    }
 
 }
