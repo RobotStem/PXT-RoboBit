@@ -250,7 +250,7 @@ namespace MyRoboStem {
 	 * @param delaytime Time number Index to delay; eg: 100
 	*/
     //% subcategory=RoboBit
-    //% blockId=RoboBit_TimeDELAY block="delay|%delaytime|%index"
+    //% blockId=RoboBit_TimeDELAY block="delay|%delaytime|%indexunit"
     //% speed.min=0 speed.max=100
     export function TimeDELAY(indexunit: Timeunit, delaytime: number): void {
 	switch (indexunit) {
