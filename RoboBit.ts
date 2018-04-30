@@ -174,7 +174,9 @@ namespace MyRoboStem {
 		motorOFF(Motors.MotorAB, StopMode.Brake)
 		break
         }
+	/**
 	break;
+	*/
     }
 
 
