@@ -29,6 +29,13 @@ namespace MyRoboStem {
         Coast
     }
 
+    export enum Rotated {
+        //% block="left"
+        Left,
+        //% block="right"
+        Right
+    }
+
      /**	
      * Turns on motor, forward, reverse at the requested speed 
      *
@@ -141,6 +148,34 @@ namespace MyRoboStem {
 	}
     }
 
+	/**
+	 * Execute dual motor to rotate with delay time to stop.
+	 * @param index rotate robot Index
+	 * @param speed speed of motor; eg: 50
+	 * @param delay seconde delay to stop; eg: 1
+	*/
+    //% subcategory=RoboBit
+    //% blockId=RoboBit_rotateDelay block="rotate|%index|speed %speed|delay %delay|sec"
+    //% speed.min=0 speed.max=100
+    //% delay.min=0 speed.max=10
+    export function RotateDelay(index: Rotated, speed: number, delay: number): void {
+      let motorspeed = pins.map(speed,0,100,0,1023)      
+	switch (index) {
+            case Rotated.Left:
+		motorOn(Motors.MotorA, MotorDirection.Reverse, speed)
+		motorOn(Motors.MotorB, MotorDirection.Forward, speed)
+		basic.pause(delay*1000)
+		motorOFF(Motors.MotorAB, StopMode.Brake)
+		break
+            case Rotated.Right:
+		motorOn(Motors.MotorA, MotorDirection.Forward, speed)
+		motorOn(Motors.MotorB, MotorDirection.Reverse, speed)
+		basic.pause(delay*1000)
+		motorOFF(Motors.MotorAB, StopMode.Brake)
+		break
+        }
+	break;
+    }
 
 
 }
