@@ -242,7 +242,7 @@ namespace MyRoboStem {
 	 * @param pausetime  mSec number  to elay; eg: 100
 	*/
     //% subcategory=RoboBit
-    //% pausetime.min>0
+    //% pausetime.min=1 pausetime.max=10000
     //% blockId=RoboBit_TimePAUSE block="pause|%pausetime|mSec"
     export function TimePAUSE(pausetime: number): void {
 		basic.pause(pausetime)
@@ -254,7 +254,7 @@ namespace MyRoboStem {
 	 * @param delaytime   Seconde number to delay; eg: 1
 	*/
     //% subcategory=RoboBit
-    //% delaytime.min>0
+    //% delaytime.min=1 delaytime.max=10
     //% blockId=RoboBit_TimeDELAY block="delay|%delaytime|Sec"
     export function TimeDELAY(delaytime: number): void {
 		basic.pause(delaytime*1000)
