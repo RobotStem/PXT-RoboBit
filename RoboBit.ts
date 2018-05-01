@@ -350,9 +350,9 @@ namespace MyRoboStem {
      * Control Servo GPIO0 to GPIO12 to Stop
      */
     //% subcategory=RoboBit
-    //% blockId=RoboBit_servoSTOP block="servo stop|%indexSV"
-    export function servoSTOP(indexSV: Servo): void {
-	switch (indexSV) {
+    //% blockId=RoboBit_servoSTOP block="servo stop|%indexSVstop"
+    export function servoSTOP(indexSVstop: Servo): void {
+	switch (indexSVstop) {
             case Servo.Servo0:
 	        pins.servoSetPulse(AnalogPin.P0, 0)
 		break
