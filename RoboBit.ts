@@ -71,7 +71,7 @@ namespace MyRoboStem {
 	//% block="6"
 	Servo6,
 	//% block="7"
-	Servo7
+	Servo7,
 	//% block="8"
 	Servo8,
 	//% block="9"
