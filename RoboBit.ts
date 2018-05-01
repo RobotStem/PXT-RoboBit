@@ -66,6 +66,8 @@ namespace MyRoboStem {
 	Servo3,
 	//% block="4"
 	Servo4,
+	//% block="10"
+	Servo10,
 	//% block="5"
 	Servo5,
 	//% block="6"
@@ -76,8 +78,6 @@ namespace MyRoboStem {
 	Servo8,
 	//% block="9"
 	Servo9,
-	//% block="10"
-	Servo10,
 	//% block="11"
 	Servo11,
 	//% block="12"
@@ -255,7 +255,7 @@ namespace MyRoboStem {
 	 * @param speed speed of motor; eg: 40
 	*/
     //% subcategory=RoboBit
-    //% blockId=RoboBit_followlineTurn block="turn|%index|speed %speed"
+    //% blockId=RoboBit_followlineTurn block="turn|%indexfl|speed %speed"
     //% speed.min=0 speed.max=100
     export function followlineTurn(indexfl: Turn, speed: number): void {
       let motorspeed = pins.map(speed,0,100,0,1023)      
@@ -297,7 +297,8 @@ namespace MyRoboStem {
 
     /**
      * Control Servo GPIO0 to GPIO12 degree 0 - 180
-     * @param degree  Servo degree 0-180, eg: 90
+     * @param indexSV  Select servo number to control
+     * @param degree   Servo degree 0-180, eg: 90
      */
     //% subcategory=RoboBit
     //% blockId=RoboBit_servoDEGREE block="servo|%indexSV|degree %degree"
@@ -348,6 +349,7 @@ namespace MyRoboStem {
 
     /**
      * Control Servo GPIO0 to GPIO12 to Stop
+     * @param indexSVstop  Select servo number to control
      */
     //% subcategory=RoboBit
     //% blockId=RoboBit_servoSTOP block="servo stop|%indexSVstop"
