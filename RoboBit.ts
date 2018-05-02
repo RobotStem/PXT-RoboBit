@@ -55,34 +55,6 @@ namespace MyRoboStem {
         Right
     }
 
-    export enum Servo {
-	//% block="0"
-	Servo0,
-	//% block="1"
-	Servo1,
-	//% block="2"
-	Servo2,
-	//% block="3"
-	Servo3,
-	//% block="4"
-	Servo4,
-	//% block="10"
-	Servo10,
-	//% block="5"
-	Servo5,
-	//% block="6"
-	Servo6,
-	//% block="7"
-	Servo7,
-	//% block="8"
-	Servo8,
-	//% block="9"
-	Servo9,
-	//% block="11"
-	Servo11,
-	//% block="12"
-	Servo12
-    }
 
      /**	
      * Turns on motor, forward, reverse at the requested speed 
