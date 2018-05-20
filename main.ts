@@ -43,8 +43,10 @@ export enum Ultrasonic {
        			 // read pulse
         		const d = pins.pulseIn(DigitalPin.P6, PulseValue.High, maxCmDistance * 58);
 			    switch (unit) {
-            			case PingUnit.Centimeters: return d / 58;
-            			case PingUnit.Inches: return d / 148;
+            			case PingUnit.Centimeters:
+					    return d / 58;
+            			case PingUnit.Inches: 
+					    return d / 148;
             			default: return d ;
         		    }
 			break;
@@ -58,8 +60,10 @@ export enum Ultrasonic {
        			 // read pulse
         		const d = pins.pulseIn(DigitalPin.P8, PulseValue.High, maxCmDistance * 58);
 			    switch (unit) {
-            			case PingUnit.Centimeters: return d / 58;
-            			case PingUnit.Inches: return d / 148;
+            			case PingUnit.Centimeters: 
+					    return d / 58;
+            			case PingUnit.Inches: 
+					    return d / 148;
             			default: return d ;
         		    }
 			break;
@@ -73,12 +77,13 @@ export enum Ultrasonic {
        			 // read pulse
         		const d = pins.pulseIn(DigitalPin.P11, PulseValue.High, maxCmDistance * 58);
 			    switch (unit) {
-            			case PingUnit.Centimeters: return d / 58;
-            			case PingUnit.Inches: return d / 148;
+            			case PingUnit.Centimeters: 
+					    return d / 58;
+            			case PingUnit.Inches: 
+					    return d / 148;
             			default: return d ;
         		    }   
 			break;
              }
-	break;
         }
 }
