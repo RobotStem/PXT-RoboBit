@@ -23,17 +23,23 @@ export enum Ultrasonic {
 
     }
 	
-	
     /**
      * Send a ping and get the echo time (in microseconds) as a result
-     * @param trig tigger pin
-     * @param echo echo pin
+     * @param sonar tigger pin
      * @param unit desired conversion unit
      * @param maxCmDistance maximum distance in centimeters (default is 500)
      */
-    //% blockId=sonar_ping block="Ultrasonic %trig|unit %unit"
-    export function ping(trig: Sonar, echo: Sonar, unit: PingUnit, maxCmDistance = 500): number {
-        // send pulse
+    //% blockId=sonar_ping block="Ultrasonic %sonar|unit %unit"
+    export function ping(sonar: Ultrasonic, unit: PingUnit, maxCmDistance = 500): number {
+      switch (sonar) {
+	      case Ultrasonic.Ultrasonic1:
+		
+	      case Ultrasonic.Ultrasonic2:
+		
+	      case Ultrasonic.Ultrasonic3:
+	
+		      
+      }
         pins.setPull(trig, PinPullMode.PullNone);
         pins.digitalWritePin(trig, 0);
         control.waitMicros(2);
