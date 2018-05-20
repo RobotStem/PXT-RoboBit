@@ -13,19 +13,14 @@ export enum PingUnit {
     Inches
 }
 
-export enum Sonar {
-	//% block="P6"
-	Sonar6,
-	//% block="P7"
-	Sonar7,
-	//% block="P8"
-	Sonar8,
-	//% block="P9"
-	Sonar9,
-	//% block="P11"
-	Sonar11,
-	//% block="P12"
-	Sonar12
+export enum Ultrasonic {
+	//% block="1"
+        Ultrasonic1,
+	//% block="2"
+	Ultrasonic2,
+	//% block="3"
+	Ultrasonic3
+
     }
 	
 	
@@ -36,7 +31,7 @@ export enum Sonar {
      * @param unit desired conversion unit
      * @param maxCmDistance maximum distance in centimeters (default is 500)
      */
-    //% blockId=sonar_ping block="ping trig %trig|echo %echo|unit %unit"
+    //% blockId=sonar_ping block="Ultrasonic %trig|unit %unit"
     export function ping(trig: Sonar, echo: Sonar, unit: PingUnit, maxCmDistance = 500): number {
         // send pulse
         pins.setPull(trig, PinPullMode.PullNone);
