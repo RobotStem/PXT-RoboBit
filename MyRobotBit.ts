@@ -1,100 +1,10 @@
 ﻿//% weight=50 color="#ff6600" weight=10 icon="\uf11e"
 
-namespace MyRobotBit {
+namespace RoboBit {
 	/************************************************************************************************************************************************
 	* Robot<>Stem<>Project<>micro:bit 
 	************************************************************************************************************************************************/
-    export enum Motors {
-        //% blockId=Motor_motor_A
-        //% block="motor A"
-        MotorA,
-        //% blockId=Motor_motor_B
-        //% block="motor B"
-        MotorB,
-        //% blockId=Motor_motor_AB
-        //% block="motor AB"
-        MotorAB
-    }
-
-    export enum MotorDirection {
-        //% block="forward"
-        Forward,
-        //% block="reverse"
-        Reverse
-    }
-
-    export enum StopMode {
-        //% block="brake"
-        Brake,
-        //% block="coast"
-        Coast
-    }
-
-    export enum Rotated {
-        //% block="left"
-        Left,
-        //% block="right"
-        Right
-    }
-
-    export enum RotatedmS {
-        //% block="left"
-        Left,
-        //% block="right"
-        Right
-    }
-
-    export enum Turn {
-        //% block="left"
-        Left,
-        //% block="right"
-        Right
-    }
-
-   export enum Servo {
-	//% block="P0"
-	Servo0,
-	//% block="P1"
-	Servo1,
-	//% block="P2"
-	Servo2,
-	//% block="P3"
-	Servo3,
-	//% block="P4"
-	Servo4,
-	//% block="P10"
-	Servo10,
-	//% block="P5"
-	Servo5,
-	//% block="P6"
-	Servo6,
-	//% block="P7"
-	Servo7,
-	//% block="P8"
-	Servo8,
-	//% block="P9"
-	Servo9,
-	//% block="P11"
-	Servo11,
-	//% block="P12"
-	Servo12
-    }
-
-   export enum Servo360 {
-	//% block="P0"
-	Servo0,
-	//% block="P1"
-	Servo1,
-	//% block="P2"
-	Servo2,
-	//% block="P3"
-	Servo3,
-	//% block="P4"
-	Servo4,
-	//% block="P10"
-	Servo10
-    }
-
+    
     export enum PingUnit {
 	//% block="μs"  
 	MicroSeconds,
