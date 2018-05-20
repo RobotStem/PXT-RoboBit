@@ -11,7 +11,6 @@ export enum PingUnit {
     Inches,
     //% block="μs"
     MicroSeconds
-
 }
 
 export enum Ultrasonic {
@@ -21,7 +20,6 @@ export enum Ultrasonic {
 	ultrasonic2,
 	//% block="3"
 	ultrasonic3
-
     }
 	
     /**
@@ -31,7 +29,7 @@ export enum Ultrasonic {
      * @param maxCmDistance maximum distance in centimeters (default is 500)
      */
     //% blockId=sonar_ping block="Ultrasonic %sonar|unit %unit"
-    export function ping(sonar: Ultrasonic, unit: PingUnit, maxCmDistance = 500): number {
+    export function ping(sonar: Ultrasonic, unit: PingUnit, maxCmDistance = 500): void {
       switch (sonar) {
 	      case Ultrasonic.ultrasonic1:
 			pins.setPull(DigitalPin.P7, PinPullMode.PullNone);
@@ -44,9 +42,9 @@ export enum Ultrasonic {
         		const d = pins.pulseIn(DigitalPin.P6, PulseValue.High, maxCmDistance * 58);
 			    switch (unit) {
             			case PingUnit.Centimeters:
-					    return d / 58;
-            			case PingUnit.Inches: 
-					    return d / 148;
+				     return d / 58;
+            			case PingUnit.Inches:
+				     return d / 148;
             			default: return d ;
         		    }
 			break;
@@ -60,10 +58,10 @@ export enum Ultrasonic {
        			 // read pulse
         		const d = pins.pulseIn(DigitalPin.P8, PulseValue.High, maxCmDistance * 58);
 			    switch (unit) {
-            			case PingUnit.Centimeters: 
-					    return d / 58;
-            			case PingUnit.Inches: 
-					    return d / 148;
+            			case PingUnit.Centimeters:
+				     return d / 58;
+            			case PingUnit.Inches:
+				     return d / 148;
             			default: return d ;
         		    }
 			break;
@@ -77,10 +75,10 @@ export enum Ultrasonic {
        			 // read pulse
         		const d = pins.pulseIn(DigitalPin.P11, PulseValue.High, maxCmDistance * 58);
 			    switch (unit) {
-            			case PingUnit.Centimeters: 
-					    return d / 58;
-            			case PingUnit.Inches: 
-					    return d / 148;
+            			case PingUnit.Centimeters:
+				     return d / 58;
+            			case PingUnit.Inches:
+				     return d / 148;
             			default: return d ;
         		    }   
 			break;
