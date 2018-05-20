@@ -1,4 +1,10 @@
-enum PingUnit {
+//% weight=50 color="#ff6600" weight=10 icon="\uf11e"
+
+namespace RoboBit {
+	/************************************************************************************************************************************************
+	* Robot<>Stem<>Project<>micro:bit 
+	************************************************************************************************************************************************/
+    export enum PingUnit {
     //% block="μs"
     MicroSeconds,
     //% block="cm"
@@ -7,11 +13,6 @@ enum PingUnit {
     Inches
 }
 
-/**
- * Sonar and ping utilities
- */
-//% color="#2c3e50" weight=10
-namespace RoboBit {
     /**
      * Send a ping and get the echo time (in microseconds) as a result
      * @param trig tigger pin
