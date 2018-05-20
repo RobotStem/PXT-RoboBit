@@ -5,12 +5,13 @@ namespace RoboBit {
 	* Robot<>Stem<>Project<>micro:bit 
 	************************************************************************************************************************************************/
 export enum PingUnit {
-     //% block="cm"
+    //% block="cm"
     Centimeters,
     //% block="inches"
     Inches,
-   //% block="μs"
+    //% block="μs"
     MicroSeconds
+
 }
 
 export enum Ultrasonic {
@@ -33,29 +34,29 @@ export enum Ultrasonic {
     export function ping(sonar: Ultrasonic, unit: PingUnit, maxCmDistance = 500): number {
       switch (sonar) {
 	      case Ultrasonic.ultrasonic1:
-			pins.setPull(P7, PinPullMode.PullNone);
-        		pins.digitalWritePin(P7, 0);
+			pins.setPull(DigitalPin.P7, PinPullMode.PullNone);
+        		pins.digitalWritePin(DigitalPin.P7, 0);
         		control.waitMicros(2);
-        		pins.digitalWritePin(P7, 1);
+        		pins.digitalWritePin(DigitalPin.P7, 1);
         		control.waitMicros(10);
-        		pins.digitalWritePin(P7, 0);
+        		pins.digitalWritePin(DigitalPin.P7, 0);
        			 // read pulse
-        		const d = pins.pulseIn(P6, PulseValue.High, maxCmDistance * 58);
+        		const d = pins.pulseIn(DigitalPin.P6, PulseValue.High, maxCmDistance * 58);
 			    switch (unit) {
             			case PingUnit.Centimeters: return d / 58;
             			case PingUnit.Inches: return d / 148;
             			default: return d ;
         		    }
-		      break;
+			break;
 	      case Ultrasonic.ultrasonic2:
-			pins.setPull(P9, PinPullMode.PullNone);
-        		pins.digitalWritePin(P9, 0);
+			pins.setPull(DigitalPin.P9, PinPullMode.PullNone);
+        		pins.digitalWritePin(DigitalPin.P9, 0);
         		control.waitMicros(2);
-        		pins.digitalWritePin(P9, 1);
+        		pins.digitalWritePin(DigitalPin.P9, 1);
         		control.waitMicros(10);
-        		pins.digitalWritePin(P9, 0);
+        		pins.digitalWritePin(DigitalPin.P9, 0);
        			 // read pulse
-        		const d = pins.pulseIn(P8, PulseValue.High, maxCmDistance * 58);
+        		const d = pins.pulseIn(DigitalPin.P8, PulseValue.High, maxCmDistance * 58);
 			    switch (unit) {
             			case PingUnit.Centimeters: return d / 58;
             			case PingUnit.Inches: return d / 148;
@@ -63,21 +64,21 @@ export enum Ultrasonic {
         		    }
 			break;
 	      case Ultrasonic.ultrasonic3:
-			pins.setPull(P12, PinPullMode.PullNone);
-        		pins.digitalWritePin(P12, 0);
+			pins.setPull(DigitalPin.P12, PinPullMode.PullNone);
+        		pins.digitalWritePin(DigitalPin.P12, 0);
         		control.waitMicros(2);
-        		pins.digitalWritePin(P12, 1);
+        		pins.digitalWritePin(DigitalPin.P12, 1);
         		control.waitMicros(10);
-        		pins.digitalWritePin(P12, 0);
+        		pins.digitalWritePin(DigitalPin.P12, 0);
        			 // read pulse
-        		const d = pins.pulseIn(P11, PulseValue.High, maxCmDistance * 58);
+        		const d = pins.pulseIn(DigitalPin.P11, PulseValue.High, maxCmDistance * 58);
 			    switch (unit) {
             			case PingUnit.Centimeters: return d / 58;
             			case PingUnit.Inches: return d / 148;
             			default: return d ;
-        		    } 
-		      break;
+        		    }   
+			break;
              }
- 	break;
+	break;
         }
 }
