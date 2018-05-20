@@ -15,11 +15,11 @@ export enum PingUnit {
 
 export enum Ultrasonic {
 	//% block="1"
-        Ultrasonic1,
+        ultrasonic1,
 	//% block="2"
-	Ultrasonic2,
+	ultrasonic2,
 	//% block="3"
-	Ultrasonic3
+	ultrasonic3
 
     }
 	
@@ -32,7 +32,7 @@ export enum Ultrasonic {
     //% blockId=sonar_ping block="Ultrasonic %sonar|unit %unit"
     export function ping(sonar: Ultrasonic, unit: PingUnit, maxCmDistance = 500): number {
       switch (sonar) {
-	      case Ultrasonic.Ultrasonic1:
+	      case Ultrasonic.ultrasonic1:
 			pins.setPull(P7, PinPullMode.PullNone);
         		pins.digitalWritePin(P7, 0);
         		control.waitMicros(2);
@@ -46,7 +46,7 @@ export enum Ultrasonic {
             			case PingUnit.Inches: return d / 148;
             			default: return d ;
         		    }
-	      case Ultrasonic.Ultrasonic2:
+	      case Ultrasonic.ultrasonic2:
 			pins.setPull(P9, PinPullMode.PullNone);
         		pins.digitalWritePin(P9, 0);
         		control.waitMicros(2);
@@ -61,7 +61,7 @@ export enum Ultrasonic {
             			default: return d ;
         		    }
 		
-	      case Ultrasonic.Ultrasonic3:
+	      case Ultrasonic.ultrasonic3:
 			pins.setPull(P12, PinPullMode.PullNone);
         		pins.digitalWritePin(P12, 0);
         		control.waitMicros(2);
