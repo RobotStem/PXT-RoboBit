@@ -46,7 +46,7 @@ export enum Ultrasonic {
             			case PingUnit.Inches: return d / 148;
             			default: return d ;
         		    }
-		      break
+		      break;
 	      case Ultrasonic.ultrasonic2:
 			pins.setPull(P9, PinPullMode.PullNone);
         		pins.digitalWritePin(P9, 0);
@@ -61,7 +61,7 @@ export enum Ultrasonic {
             			case PingUnit.Inches: return d / 148;
             			default: return d ;
         		    }
-			break
+			break;
 	      case Ultrasonic.ultrasonic3:
 			pins.setPull(P12, PinPullMode.PullNone);
         		pins.digitalWritePin(P12, 0);
@@ -76,8 +76,8 @@ export enum Ultrasonic {
             			case PingUnit.Inches: return d / 148;
             			default: return d ;
         		    } 
-		      break
+		      break;
              }
- 	break
+ 	break;
         }
 }
