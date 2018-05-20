@@ -4,7 +4,7 @@ namespace RoboBit {
 	/************************************************************************************************************************************************
 	* Robot<>Stem<>Project<>micro:bit 
 	************************************************************************************************************************************************/
-    export enum PingUnit {
+export enum PingUnit {
     //% block="μs"
     MicroSeconds,
     //% block="cm"
@@ -13,6 +13,22 @@ namespace RoboBit {
     Inches
 }
 
+export enum Sonar {
+	//% block="P6"
+	Sonar6,
+	//% block="P7"
+	Sonar7,
+	//% block="P8"
+	Sonar8,
+	//% block="P9"
+	Sonar9,
+	//% block="P11"
+	Sonar11,
+	//% block="P12"
+	Sonar12
+    }
+	
+	
     /**
      * Send a ping and get the echo time (in microseconds) as a result
      * @param trig tigger pin
@@ -21,7 +37,7 @@ namespace RoboBit {
      * @param maxCmDistance maximum distance in centimeters (default is 500)
      */
     //% blockId=sonar_ping block="ping trig %trig|echo %echo|unit %unit"
-    export function ping(trig: DigitalPin, echo: DigitalPin, unit: PingUnit, maxCmDistance = 500): number {
+    export function ping(trig: Sonar, echo: Sonar, unit: PingUnit, maxCmDistance = 500): number {
         // send pulse
         pins.setPull(trig, PinPullMode.PullNone);
         pins.digitalWritePin(trig, 0);
