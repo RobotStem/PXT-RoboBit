@@ -26,10 +26,10 @@ export enum Ultrasonic {
      * Send a ping and get the echo time (in microseconds) as a result
      * @param sonar tigger pin
      * @param unit desired conversion unit
-     * @param maxCmDistance maximum distance in centimeters (default is 500)
      */
     //% blockId=sonar_ping block="Ultrasonic %sonar|unit %unit"
-    export function ping(sonar: Ultrasonic, unit: PingUnit, maxCmDistance = 500): void {
+    export function ping(sonar: Ultrasonic, unit: PingUnit): void {
+      let d = 0
       switch (sonar) {
 	      case Ultrasonic.ultrasonic1:
 			pins.setPull(DigitalPin.P7, PinPullMode.PullNone);
@@ -39,14 +39,7 @@ export enum Ultrasonic {
         		control.waitMicros(10);
         		pins.digitalWritePin(DigitalPin.P7, 0);
        			 // read pulse
-        		const d = pins.pulseIn(DigitalPin.P6, PulseValue.High, maxCmDistance * 58);
-			    switch (unit) {
-            			case PingUnit.Centimeters:
-				     return d / 58;
-            			case PingUnit.Inches:
-				     return d / 148;
-            			default: return d ;
-        		    }
+        		d = pins.pulseIn(DigitalPin.P6, PulseValue.High) / 58;
 			break;
 	      case Ultrasonic.ultrasonic2:
 			pins.setPull(DigitalPin.P9, PinPullMode.PullNone);
@@ -56,14 +49,7 @@ export enum Ultrasonic {
         		control.waitMicros(10);
         		pins.digitalWritePin(DigitalPin.P9, 0);
        			 // read pulse
-        		const d = pins.pulseIn(DigitalPin.P8, PulseValue.High, maxCmDistance * 58);
-			    switch (unit) {
-            			case PingUnit.Centimeters:
-				     return d / 58;
-            			case PingUnit.Inches:
-				     return d / 148;
-            			default: return d ;
-        		    }
+        		d = pins.pulseIn(DigitalPin.P8, PulseValue.High) / 58;
 			break;
 	      case Ultrasonic.ultrasonic3:
 			pins.setPull(DigitalPin.P12, PinPullMode.PullNone);
@@ -73,14 +59,7 @@ export enum Ultrasonic {
         		control.waitMicros(10);
         		pins.digitalWritePin(DigitalPin.P12, 0);
        			 // read pulse
-        		const d = pins.pulseIn(DigitalPin.P11, PulseValue.High, maxCmDistance * 58);
-			    switch (unit) {
-            			case PingUnit.Centimeters:
-				     return d / 58;
-            			case PingUnit.Inches:
-				     return d / 148;
-            			default: return d ;
-        		    }   
+        		d = pins.pulseIn(DigitalPin.P11, PulseValue.High) / 58;
 			break;
              }
         }
