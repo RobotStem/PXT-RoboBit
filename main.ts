@@ -32,7 +32,6 @@ export enum Ultrasonic {
       let d = 0
       switch (sonar) {
 	      case Ultrasonic.ultrasonic1:
-			pins.setPull(DigitalPin.P7, PinPullMode.PullNone);
         		pins.digitalWritePin(DigitalPin.P7, 0);
         		control.waitMicros(2);
         		pins.digitalWritePin(DigitalPin.P7, 1);
@@ -42,7 +41,6 @@ export enum Ultrasonic {
         		d = pins.pulseIn(DigitalPin.P6, PulseValue.High) / 58;
 			break;
 	      case Ultrasonic.ultrasonic2:
-			pins.setPull(DigitalPin.P9, PinPullMode.PullNone);
         		pins.digitalWritePin(DigitalPin.P9, 0);
         		control.waitMicros(2);
         		pins.digitalWritePin(DigitalPin.P9, 1);
@@ -52,7 +50,6 @@ export enum Ultrasonic {
         		d = pins.pulseIn(DigitalPin.P8, PulseValue.High) / 58;
 			break;
 	      case Ultrasonic.ultrasonic3:
-			pins.setPull(DigitalPin.P12, PinPullMode.PullNone);
         		pins.digitalWritePin(DigitalPin.P12, 0);
         		control.waitMicros(2);
         		pins.digitalWritePin(DigitalPin.P12, 1);
